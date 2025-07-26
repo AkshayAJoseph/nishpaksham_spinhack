@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Galaxy Toothbrush | Brushing, Reinvented</title>
+    <meta name="description" content="Experience the future of oral care with Samsung's AI-powered Galaxy Toothbrush. Revolutionary technology meets premium design.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Smarter Smiles Start Here.</p>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fab fa-samsung"></i>
+                <span>Galaxy Toothbrush</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#specs" class="nav-link">Tech Specs</a></li>
+                <li><a href="#comparison" class="nav-link">Compare</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-controls">
+                <div class="theme-toggle" id="themeToggle">
+                    <div class="toggle-slider"></div>
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Background Particles Canvas -->
+        <canvas id="particles-canvas" class="particles-canvas"></canvas>
+        
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+            <!-- Replace this canvas with your image -->
+            <div class="hero-image">
+                <img src="toothbrush.png" alt="Samsung Galaxy Toothbrush" id="heroImage" loading="lazy">
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="brand-text">Samsung Galaxy</span>
+                    <span class="product-text">Toothbrush</span>
+                </h1>
+                <p class="hero-tagline">Brushing, Reinvented</p>
+                <p class="hero-subtitle">AI-powered oral care that adapts to your unique needs. Experience the future of dental hygiene with Samsung's most advanced toothbrush.</p>
+                
+                <div class="hero-actions">
+                    <button class="cta-primary" id="exploreBtn">
+                        <span>Explore Now</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="cta-secondary">
+                        <i class="fas fa-play"></i>
+                        <span>Watch Demo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to discover</span>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Revolutionary Features</h2>
+                <p class="section-subtitle">Advanced technology meets premium design</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-feature="ai">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Feedback</h3>
+                    <p>Real-time brushing analysis with personalized recommendations powered by Samsung's advanced AI algorithms.</p>
+                </div>
+                
+                <div class="feature-card" data-feature="health">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Samsung Health Sync</h3>
+                    <p>Seamlessly integrates with Samsung Health to track your oral care routine and overall wellness.</p>
+                </div>
+                
+                <div class="feature-card" data-feature="ultrasonic">
+                    <div class="feature-icon">
+                        <i class="fas fa-wave-square"></i>
+                    </div>
+                    <h3>Ultrasonic Cleaning</h3>
+                    <p>Advanced ultrasonic technology removes 99.9% of plaque with gentle, efficient vibrations.</p>
+                </div>
+                
+                <div class="feature-card" data-feature="mapping">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>360° Mouth Mapping</h3>
+                    <p>Comprehensive oral scanning creates a detailed map to ensure every area receives optimal care.</p>
+                </div>
+                
+                <div class="feature-card" data-feature="charging">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Wireless Charging</h3>
+                    <p>Premium wireless charging dock with fast-charge technology for all-day battery life.</p>
+                </div>
+                
+                <div class="feature-card" data-feature="eco">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Friendly Design</h3>
+                    <p>Sustainable materials and replaceable heads reduce environmental impact without compromising performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Specs Section -->
+    <section class="tech-specs" id="specs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Specifications</h2>
+                <p class="section-subtitle">Engineering excellence in every detail</p>
+            </div>
+            
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <div class="spec-header">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Processor</h3>
+                    </div>
+                    <div class="spec-content">
+                        <p>Samsung Exynos AI Chip</p>
+                        <span>Advanced neural processing</span>
+                    </div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-header">
+                        <i class="fas fa-battery-full"></i>
+                        <h3>Battery</h3>
+                    </div>
+                    <div class="spec-content">
+                        <p>2200mAh Li-ion</p>
+                        <span>30 days usage</span>
+                    </div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-header">
+                        <i class="fas fa-wifi"></i>
+                        <h3>Connectivity</h3>
+                    </div>
+                    <div class="spec-content">
+                        <p>Bluetooth 5.3</p>
+                        <span>Wi-Fi 6E ready</span>
+                    </div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Water Resistance</h3>
+                    </div>
+                    <div class="spec-content">
+                        <p>IPX8 Rated</p>
+                        <span>Fully waterproof</span>
+                    </div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-header">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Vibration</h3>
+                    </div>
+                    <div class="spec-content">
+                        <p>42,000 VPM</p>
+                        <span>5 intensity levels</span>
+                    </div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="spec-header">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>App Support</h3>
+                    </div>
+                    <div class="spec-content">
+                        <p>Samsung Health+</p>
+                        <span>iOS & Android</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="demo-content">
+                <h2>See It In Action</h2>
+                <p>Experience the future of oral care</p>
+                <div class="demo-video-container">
+                    <div class="video-placeholder" id="lottieDemo">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitor Comparison Section -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Competitor Comparison</h2>
+                <p class="section-subtitle">See why Samsung Galaxy Toothbrush leads the market</p>
+            </div>
+            
+            <div class="comparison-table-container">
+                <div class="comparison-table">
+                    <div class="table-header">
+                        <div class="header-cell feature-header">Feature</div>
+                        <div class="header-cell samsung-header">
+                            <div class="brand-highlight">
+                                <i class="fab fa-samsung"></i>
+                                <span>Samsung Toothbrush</span>
+                            </div>
+                        </div>
+                        <div class="header-cell">Regular Electric</div>
+                        <div class="header-cell">Others (e.g., Oral-B)</div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell feature-cell">
+                            <i class="fas fa-microchip"></i>
+                            <span>Smart Sensors</span>
+                        </div>
+                        <div class="table-cell samsung-cell">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Yes</span>
+                        </div>
+                        <div class="table-cell no-cell">
+                            <i class="fas fa-times-circle"></i>
+                            <span>No</span>
+                        </div>
+                        <div class="table-cell partial-cell">
+                            <i class="fas fa-minus-circle"></i>
+                            <span>Some models</span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell feature-cell">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>App Feedback</span>
+                        </div>
+                        <div class="table-cell samsung-cell">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Yes</span>
+                        </div>
+                        <div class="table-cell no-cell">
+                            <i class="fas fa-times-circle"></i>
+                            <span>No</span>
+                        </div>
+                        <div class="table-cell partial-cell">
+                            <i class="fas fa-minus-circle"></i>
+                            <span>Some models</span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell feature-cell">
+                            <i class="fas fa-user-shield"></i>
+                            <span>Parental Supervision</span>
+                        </div>
+                        <div class="table-cell samsung-cell">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Yes</span>
+                        </div>
+                        <div class="table-cell no-cell">
+                            <i class="fas fa-times-circle"></i>
+                            <span>No</span>
+                        </div>
+                        <div class="table-cell rare-cell">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span>Rare</span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row">
+                        <div class="table-cell feature-cell">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Habit Analytics</span>
+                        </div>
+                        <div class="table-cell samsung-cell">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Yes</span>
+                        </div>
+                        <div class="table-cell no-cell">
+                            <i class="fas fa-times-circle"></i>
+                            <span>No</span>
+                        </div>
+                        <div class="table-cell partial-cell">
+                            <i class="fas fa-minus-circle"></i>
+                            <span>Some models</span>
+                        </div>
+                    </div>
+                    
+                    <div class="table-row highlight-row">
+                        <div class="table-cell feature-cell">
+                            <i class="fab fa-samsung"></i>
+                            <span>Samsung Ecosystem</span>
+                        </div>
+                        <div class="table-cell samsung-cell exclusive">
+                            <i class="fas fa-crown"></i>
+                            <span>Yes</span>
+                        </div>
+                        <div class="table-cell no-cell">
+                            <i class="fas fa-times-circle"></i>
+                            <span>No</span>
+                        </div>
+                        <div class="table-cell no-cell">
+                            <i class="fas fa-times-circle"></i>
+                            <span>No</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-summary">
+                <div class="summary-card">
+                    <h3>Why Choose Samsung?</h3>
+                    <ul>
+                        <li><i class="fas fa-star"></i> Complete smart ecosystem integration</li>
+                        <li><i class="fas fa-star"></i> Advanced AI-powered analytics</li>
+                        <li><i class="fas fa-star"></i> Family-friendly parental controls</li>
+                        <li><i class="fas fa-star"></i> Seamless Samsung Health sync</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Users Say</h2>
+                <p class="section-subtitle">Real experiences from early adopters</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The AI feedback is incredible. My dentist noticed significant improvement in just one month."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/64?img=1" alt="Sarah Chen" loading="lazy">
+                        <div>
+                            <h4>Sarah Chen</h4>
+                            <span>Product Designer</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Samsung Health integration makes tracking my oral care routine effortless. Love the wireless charging!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/64?img=12" alt="Mike Rodriguez" loading="lazy">
+                        <div>
+                            <h4>Mike Rodriguez</h4>
+                            <span>Tech Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The 360° mapping feature caught issues my regular toothbrush missed. This is the future of oral care."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://i.pravatar.cc/64?img=25" alt="Dr. Emily Watson" loading="lazy">
+                        <div>
+                            <h4>Dr. Emily Watson</h4>
+                            <span>Dental Hygienist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonials-nav">
+                <button class="nav-btn prev-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next-btn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fab fa-samsung"></i>
+                        <span>Galaxy Toothbrush</span>
+                    </div>
+                    <p>Revolutionizing oral care with AI-powered technology and Samsung's commitment to innovation.</p>
+                    
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#specs">Tech Specs</a></li>
+                        <li><a href="#">User Guide</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Samsung</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Investors</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Early Access</h4>
+                    <p>Be the first to experience the future of oral care.</p>
+                    <form class="signup-form" id="signupForm">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+                
+                <div class="footer-credits">
+                    <p>&copy; 2025 Samsung Electronics. All rights reserved.</p>
+                    <p class="credits">Built with <a href="https://threejs.org/" target="_blank">Three.js</a>, <a href="https://gsap.com/" target="_blank">GSAP</a>, and <a href="https://lottiefiles.com/" target="_blank">Lottie</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <script src="script_new.js"></script>
+</body>
+</html>
+

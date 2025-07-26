@@ -1,0 +1,16 @@
+{
+  "name": "samsung-toothbrush-website",
+  "version": "1.0.0",
+  "description": "Samsung Galaxy Toothbrush Premium Marketing Website",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server src -p 3000 -c-1",
+    "dev": "npx http-server src -p 3000 -c-1 -o"
+  },
+  "keywords": ["samsung", "toothbrush", "marketing", "website", "threejs", "gsap"],
+  "author": "Developer",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
