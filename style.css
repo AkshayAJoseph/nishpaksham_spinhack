@@ -237,14 +237,51 @@ body {
   z-index: -1;
 }
 
+/* Enhanced animated gradient overlay */
 .gradient-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(0, 168, 255, 0.1) 0%, transparent 70%);
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 168, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(64, 201, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 168, 255, 0.08) 0%, transparent 50%);
+  animation: gradientShift 8s ease-in-out infinite;
   z-index: 1;
+}
+
+/* Floating geometric shapes */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 20%;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 168, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(0, 168, 255, 0.3),
+    30px 50px 0 rgba(64, 201, 255, 0.4),
+    -40px 30px 0 rgba(0, 168, 255, 0.3),
+    60px -20px 0 rgba(64, 201, 255, 0.5),
+    -30px -40px 0 rgba(0, 168, 255, 0.4),
+    80px 80px 0 rgba(64, 201, 255, 0.3);
+  animation: pulse 3s ease-in-out infinite, twinkle 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 0;
 }
 
 #threejs-canvas {
@@ -253,6 +290,54 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* Additional animated background elements */
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: conic-gradient(from 0deg, transparent, rgba(0, 168, 255, 0.05), transparent);
+  border-radius: 50%;
+  animation: spinSlow 25s linear infinite;
+  z-index: -1;
+}
+
+.hero-content::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 350px;
+  height: 350px;
+  background: conic-gradient(from 180deg, transparent, rgba(64, 201, 255, 0.04), transparent);
+  border-radius: 50%;
+  animation: spinSlow 20s linear infinite reverse;
+  z-index: -1;
+}
+
+/* Pulsing dots scattered around */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 20%;
+  width: 8px;
+  height: 8px;
+  background: rgba(0, 168, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(0, 168, 255, 0.3),
+    30px 50px 0 rgba(64, 201, 255, 0.4),
+    -40px 30px 0 rgba(0, 168, 255, 0.3),
+    60px -20px 0 rgba(64, 201, 255, 0.5),
+    -30px -40px 0 rgba(0, 168, 255, 0.4),
+    80px 80px 0 rgba(64, 201, 255, 0.3);
+  animation: pulse 3s ease-in-out infinite, twinkle 4s ease-in-out infinite;
+  z-index: 1;
 }
 
 /* Background Particles Canvas */
@@ -264,7 +349,35 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.4; /* Make particles very subtle */
+  opacity: 0.6; /* Increased opacity for more visibility */
+  animation: particleGlow 6s ease-in-out infinite alternate;
+}
+
+/* Animated floating orbs */
+.hero-background::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 168, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatOrb1 12s ease-in-out infinite;
+  z-index: 1;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  right: 15%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(64, 201, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatOrb2 10s ease-in-out infinite reverse;
+  z-index: 1;
 }
 
 /* Hero Image Styling */
@@ -325,6 +438,150 @@ body {
   }
   75% {
     transform: translateY(-25px) rotate(-1deg);
+  }
+}
+
+/* Hero background animations */
+@keyframes gradientShift {
+  0%, 100% {
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(0, 168, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(64, 201, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(0, 168, 255, 0.08) 0%, transparent 50%);
+  }
+  33% {
+    background: 
+      radial-gradient(circle at 80% 20%, rgba(0, 168, 255, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 20% 80%, rgba(64, 201, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 60% 60%, rgba(0, 168, 255, 0.08) 0%, transparent 50%);
+  }
+  66% {
+    background: 
+      radial-gradient(circle at 40% 60%, rgba(0, 168, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 60% 40%, rgba(64, 201, 255, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(0, 168, 255, 0.08) 0%, transparent 50%);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 100px 100px, -100px -100px;
+  }
+}
+
+@keyframes floatOrb1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(30px, -20px) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-20px, -40px) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(40px, -10px) scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  33% {
+    transform: translate(-25px, 30px) scale(1.2);
+    opacity: 0.4;
+  }
+  66% {
+    transform: translate(35px, -25px) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@keyframes particleGlow {
+  0% {
+    opacity: 0.4;
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 0.7;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(0, 168, 255, 0.3),
+      30px 50px 0 rgba(64, 201, 255, 0.4),
+      -40px 30px 0 rgba(0, 168, 255, 0.3),
+      60px -20px 0 rgba(64, 201, 255, 0.5),
+      -30px -40px 0 rgba(0, 168, 255, 0.4),
+      80px 80px 0 rgba(64, 201, 255, 0.3);
+  }
+  25% {
+    box-shadow: 
+      0 0 30px rgba(0, 168, 255, 0.6),
+      30px 50px 0 rgba(64, 201, 255, 0.7),
+      -40px 30px 0 rgba(0, 168, 255, 0.5),
+      60px -20px 0 rgba(64, 201, 255, 0.8),
+      -30px -40px 0 rgba(0, 168, 255, 0.6),
+      80px 80px 0 rgba(64, 201, 255, 0.5);
+  }
+  50% {
+    box-shadow: 
+      0 0 25px rgba(0, 168, 255, 0.4),
+      30px 50px 0 rgba(64, 201, 255, 0.6),
+      -40px 30px 0 rgba(0, 168, 255, 0.7),
+      60px -20px 0 rgba(64, 201, 255, 0.3),
+      -30px -40px 0 rgba(0, 168, 255, 0.8),
+      80px 80px 0 rgba(64, 201, 255, 0.4);
+  }
+  75% {
+    box-shadow: 
+      0 0 35px rgba(0, 168, 255, 0.5),
+      30px 50px 0 rgba(64, 201, 255, 0.3),
+      -40px 30px 0 rgba(0, 168, 255, 0.6),
+      60px -20px 0 rgba(64, 201, 255, 0.7),
+      -30px -40px 0 rgba(0, 168, 255, 0.3),
+      80px 80px 0 rgba(64, 201, 255, 0.8);
   }
 }
 
@@ -455,6 +712,23 @@ body {
   color: rgba(255, 255, 255, 0.2);
 }
 
+/* Individual text container hover effects */
+.hero-text-left:hover {
+  transform: translateX(-150px) scale(0.9) !important;
+  opacity: 0.3 !important;
+  filter: blur(3px) !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 10;
+}
+
+.hero-text-right:hover {
+  transform: translateX(150px) scale(0.9) !important;
+  opacity: 0.3 !important;
+  filter: blur(3px) !important;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 10;
+}
+
 /* Enhanced individual element animations - ensure they move with their containers */
 .hero:hover .hero-title {
   transform: translateY(-10px) scale(0.8);
@@ -476,8 +750,33 @@ body {
 }
 
 .hero:hover .hero-actions {
-  transform: translateY(10px) scale(0.7);
-  opacity: 0.05;
+  transform: translateY(10px) scale(0.9);
+  opacity: 0.8;
+}
+
+/* Individual element hover effects for better interactivity */
+.hero-title:hover {
+  transform: translateY(-15px) scale(1.05) !important;
+  opacity: 1 !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 15;
+}
+
+.hero-tagline:hover {
+  transform: translateY(-10px) scale(1.1) !important;
+  opacity: 1 !important;
+  color: var(--accent-blue-light) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 15;
+}
+
+.hero-subtitle:hover {
+  transform: translateY(-8px) scale(1.03) !important;
+  opacity: 1 !important;
+  color: var(--text-primary) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 15;
 }
 
 .hero-title {
@@ -557,8 +856,10 @@ body {
 }
 
 .cta-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
   box-shadow: 0 0 50px var(--accent-blue-glow);
+  opacity: 1 !important;
+  z-index: 20;
 }
 
 .cta-secondary {
@@ -571,7 +872,9 @@ body {
 .cta-secondary:hover {
   background: var(--accent-blue);
   border-color: var(--accent-blue);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
+  opacity: 1 !important;
+  z-index: 20;
 }
 
 .scroll-indicator {
