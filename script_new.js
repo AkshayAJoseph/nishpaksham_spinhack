@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initLottieAnimation();
     initFormHandlers();
     initMobileMenu();
+    initInteractiveToothbrush(); // Add interactive toothbrush functionality
     
     // Remove loading screen after everything is initialized
     setTimeout(() => {
@@ -901,3 +902,157 @@ window.SamsungToothbrush = {
     toothbrush,
     particles
 };
+
+// Interactive Toothbrush - Mouse Tracking & Rotation (Simplified & Reliable)
+function initInteractiveToothbrush() {
+    console.log('🦷 Initializing Interactive Toothbrush...');
+    
+    // Multiple attempts to find the image
+    function findToothbrushImage() {
+        const selectors = [
+            '.hero-image img',
+            '#heroImage',
+            '.hero img',
+            'img[alt*="toothbrush" i]',
+            'img[src*="toothbrush"]'
+        ];
+        
+        for (let selector of selectors) {
+            const img = document.querySelector(selector);
+            if (img) {
+                console.log('✅ Found toothbrush image using selector:', selector);
+                return img;
+            }
+        }
+        
+        console.error('❌ No toothbrush image found with any selector');
+        return null;
+    }
+    
+    // Wait and try multiple times
+    let attempts = 0;
+    const maxAttempts = 5;
+    
+    function trySetup() {
+        attempts++;
+        console.log(`🔍 Attempt ${attempts}/${maxAttempts} to find elements...`);
+        
+        const heroSection = document.querySelector('.hero') || document.body;
+        const toothbrushImg = findToothbrushImage();
+        
+        if (toothbrushImg) {
+            console.log('🎯 Setting up interactions...');
+            setupSimpleInteraction(heroSection, toothbrushImg);
+        } else if (attempts < maxAttempts) {
+            console.log('⏳ Retrying in 1 second...');
+            setTimeout(trySetup, 1000);
+        } else {
+            console.error('💥 Failed to find toothbrush image after all attempts');
+        }
+    }
+    
+    // Start trying immediately and then after delays
+    trySetup();
+    
+    function setupSimpleInteraction(heroSection, img) {
+        console.log('🚀 Setting up simple but effective interaction...');
+        
+        // Override any conflicting CSS
+        img.style.transformOrigin = 'center center';
+        img.style.willChange = 'transform, filter';
+        
+        let isInteracting = false;
+        
+        // Mouse move - simple and responsive
+        heroSection.addEventListener('mousemove', (e) => {
+            if (!isInteracting) return;
+            
+            const rect = heroSection.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const mouseX = (e.clientX - centerX) / (rect.width / 2);
+            const mouseY = (e.clientY - centerY) / (rect.height / 2);
+            
+            const rotateY = mouseX * 30; // Max 30 degrees
+            const rotateX = -mouseY * 20; // Max 20 degrees, inverted
+            const translateX = mouseX * 20;
+            const translateY = mouseY * 15;
+            
+            img.style.transform = `
+                translateX(${translateX}px) 
+                translateY(${translateY}px) 
+                rotateY(${rotateY}deg) 
+                rotateX(${rotateX}deg) 
+                scale(1.05)
+            `;
+            img.style.transition = 'none'; // Smooth real-time movement
+        });
+        
+        // Mouse enter
+        heroSection.addEventListener('mouseenter', () => {
+            console.log('🖱️ Mouse entered - starting interaction');
+            isInteracting = true;
+            img.style.filter = `
+                drop-shadow(0 0 40px rgba(0, 168, 255, 0.6)) 
+                brightness(1.15) 
+                saturate(1.2)
+            `;
+        });
+        
+        // Mouse leave
+        heroSection.addEventListener('mouseleave', () => {
+            console.log('👋 Mouse left - resetting');
+            isInteracting = false;
+            img.style.transition = 'all 0.5s ease';
+            img.style.transform = 'translateX(0) translateY(0) rotateY(0) rotateX(0) scale(1)';
+            img.style.filter = 'drop-shadow(0 0 30px rgba(0, 168, 255, 0.3))';
+        });
+        
+        // Click for spin effect
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log('🎯 Toothbrush clicked - spinning!');
+            
+            img.style.transition = 'transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            img.style.transform = `
+                ${img.style.transform} 
+                rotateY(${360 + (Math.random() * 180)}deg) 
+                scale(1.3)
+            `;
+            
+            // Reset scale after spin
+            setTimeout(() => {
+                img.style.transition = 'transform 0.3s ease';
+                const currentTransform = img.style.transform;
+                img.style.transform = currentTransform.replace('scale(1.3)', 'scale(1.05)');
+            }, 800);
+        });
+        
+        // Keyboard accessibility
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'Interactive Samsung Galaxy Toothbrush');
+        
+        img.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                img.click();
+            }
+        });
+        
+        console.log('✨ Interactive toothbrush is ready! Move mouse over hero section and click the toothbrush!');
+        
+        // Test animation to confirm it's working
+        setTimeout(() => {
+            console.log('🧪 Running test animation...');
+            img.style.transition = 'transform 1s ease';
+            img.style.transform = 'scale(1.1) rotateY(10deg)';
+            
+            setTimeout(() => {
+                img.style.transform = 'scale(1) rotateY(0deg)';
+                console.log('✅ Test animation complete - toothbrush is interactive!');
+            }, 1000);
+        }, 500);
+    }
+}
