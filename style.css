@@ -1702,40 +1702,247 @@ section {
   }
 }
 
-/* Loading Animation */
+/* Enhanced Loading Animation - Toothpaste Tube */
 .loading {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--primary-bg);
+  background: linear-gradient(135deg, 
+    var(--primary-bg) 0%, 
+    rgba(26, 26, 26, 0.95) 50%,
+    var(--primary-bg) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
   transition: opacity 0.5s ease;
+  overflow: hidden;
 }
 
 .loading-content {
   text-align: center;
   color: var(--text-primary);
+  position: relative;
 }
 
 .loading-content p {
-  margin-top: 2rem;
-  font-size: 1.1rem;
-  color: var(--text-secondary);
+  margin-top: 3rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--accent-blue);
+  letter-spacing: 1px;
+  animation: fadeInOut 2s ease-in-out infinite;
 }
 
+/* Toothpaste Tube Animation Container */
 .loading-spinner {
-  width: 60px;
-  height: 60px;
-  border: 3px solid var(--glass-border);
-  border-top: 3px solid var(--accent-blue);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+  width: 200px;
+  height: 120px;
   margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Toothpaste Tube Body */
+.toothpaste-tube {
+  width: 120px;
+  height: 80px;
+  background: linear-gradient(145deg, 
+    #ffffff 0%,
+    #f0f0f0 30%,
+    #e0e0e0 70%,
+    #d0d0d0 100%);
+  border-radius: 8px 40px 40px 8px;
+  position: relative;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 2px 5px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+  animation: squeeze 2s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+/* Tube Cap */
+.tube-cap {
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 20px;
+  background: linear-gradient(145deg, 
+    var(--accent-blue) 0%,
+    var(--accent-blue-light) 50%,
+    var(--accent-blue) 100%);
+  border-radius: 0 8px 8px 0;
+  box-shadow: 
+    0 2px 8px rgba(0, 168, 255, 0.3),
+    inset 0 1px 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Tube Opening */
+.tube-opening {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #333;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Toothpaste Stream */
+.toothpaste-stream {
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    #ffffff 0%,
+    #00a8ff 20%,
+    #ffffff 40%,
+    #40c9ff 60%,
+    #ffffff 80%,
+    #00a8ff 100%);
+  border-radius: 3px;
+  animation: streamFlow 2s ease-in-out infinite;
+  z-index: 1;
+  box-shadow: 
+    0 0 10px rgba(0, 168, 255, 0.4),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand Label on Tube */
+.tube-label {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-blue);
+  font-size: 0.7rem;
+  font-weight: 600;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 1px;
+}
+
+/* Sparkle Effects */
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-blue-light);
+  border-radius: 50%;
+  animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.sparkle:nth-child(1) {
+  top: 20%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+  top: 60%;
+  right: 20%;
+  animation-delay: 0.5s;
+}
+
+.sparkle:nth-child(3) {
+  top: 40%;
+  right: 5%;
+  animation-delay: 1s;
+}
+
+.sparkle:nth-child(4) {
+  top: 80%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+/* Loading Progress Bar */
+.loading-progress {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  margin-top: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+  animation: progressFill 2s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--accent-blue-glow);
+}
+
+/* Keyframe Animations */
+@keyframes squeeze {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: scaleX(0.85) scaleY(1.1);
+  }
+}
+
+@keyframes streamFlow {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  30% {
+    width: 60px;
+    opacity: 1;
+  }
+  70% {
+    width: 80px;
+    opacity: 1;
+  }
+  100% {
+    width: 100px;
+    opacity: 0.7;
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5) rotate(180deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes spin {
